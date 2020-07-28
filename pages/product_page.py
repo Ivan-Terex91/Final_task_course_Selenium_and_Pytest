@@ -25,3 +25,12 @@ class ProductPage(BasePage):
         product_price_in_page = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_IN_PAGE).text
         product_price_in_message = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_IN_MESSAGE).text
         assert product_price_in_page == product_price_in_message, "Product price in page != Product price in message"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE), "Message in page"
+
+    def should_guest_cant_see_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE), "Message in page"
+
+    def should_message_disappeared_after_adding_product_to_basket(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE), "Message in page"
