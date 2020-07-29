@@ -5,7 +5,6 @@ from .locators import BasketPageLocators
 class BasketPage(BasePage):
     def should_be_basket_page(self):
         self.should_be_basket_url()
-        self.should_be_basket_page_header()
 
     def should_be_basket_url(self):
         assert "basket" in self.browser.current_url, "Basket url is not present"
